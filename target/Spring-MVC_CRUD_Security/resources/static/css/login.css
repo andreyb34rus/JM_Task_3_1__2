@@ -1,0 +1,11 @@
+.alert-error {
+    color: red;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.alert-success {
+    color: green;
+}

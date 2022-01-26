@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+<!-- th:action - куда отправляем данные из формы -->
+<!-- th:object  - объект передаваемый контроллером -->
+<form th:method="POST" th:action="@{/admin/addUser}" th:object="emptyUser">
+    <label for="first_name">first name: </label>
+    <input type="text" th:value="${emptyUser.firstName}" id="first_name"/>
+    <br/> <br/>
+    <label for="last_name">last name: </label>
+    <input type="text" th:value="${emptyUser.lastName}" id="last_name"/>
+    <br/> <br/>
+    <label for="age">age: </label>
+    <input type="number" th:value="${emptyUser.age}" id="age"/>
+    <br/> <br/>
+    <label for="email">email: </label>
+    <input type="text" th:value="${emptyUser.email}" id="email"/>
+    <br/> <br/>
+    <label for="password">email: </label>
+    <input type="text" th:value="${emptyUser.password}" id="password"/>
+    <br/> <br/>
+    <ul>
+        <li th:each="role : ${roleList}">
+            <input th:value="${role.id}" type="checkbox"/>
+            <label th:text="${role.getRoleName()}">text</label>
+        </li>
+    </ul>
+    <br/> <br/>
+    <input type=" submit" value="save User"/>
+</form>
+<br/>
+<form th:method="GET" th:action="@{/users/list}">
+    <input type="submit" value="cancel"/>
+</form>
+</body>
+</html>
